@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var _origFetch = window.fetch;
+          var _currentFetch = function() {
+            return _origFetch ? _origFetch.apply(window, arguments) : Promise.reject(new Error('Fetch unavailable'));
+          };
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return _currentFetch;
+            },
+            set: function(fn) {
+              _currentFetch = fn;
+            }
+          });
+        } catch (e) {
+          // If already defined or restricted
+        }
+      })();
+    </script>
+    <title>Ultimate Eleven: Global Legends</title>
+    <meta name="description" content="Futuristic tactical football card duel game with draft packs, holographic cards, and real-time stadium audio." />
+    <meta property="og:title" content="Ultimate Eleven: Global Legends" />
+    <meta property="og:description" content="Futuristic tactical football card duel game with draft packs, holographic cards, and real-time stadium audio." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

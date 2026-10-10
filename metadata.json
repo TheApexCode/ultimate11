@@ -1,0 +1,6 @@
+{
+  "name": "Ultimate Eleven: Global Legends",
+  "description": "Futuristic tactical football card duel game with draft packs, holographic cards, and real-time stadium audio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
